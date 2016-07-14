@@ -358,7 +358,7 @@ function mpp_get_media_html_attributes( $args = null ) {
 		'class'				=> '',
 		'id'				=> '',
 		'title'				=> '',
-		'data-mpp-context'	=> 'gallery',
+		'data-mpp-context'	=> 'media',
 		'media'				=> 0 //pass gallery id or media, not required inside a loop
 	);
 
@@ -383,6 +383,9 @@ function mpp_get_media_html_attributes( $args = null ) {
 		$args['title'] = mpp_get_media_title( $media );
 	}
 
+if ( ! isset( $args['data-mpp-media-id'] ) ) {
+		$args['data-mpp-media-id'] = mpp_get_media_id( $media );
+	}
 	return mpp_get_html_attributes( $args ); //may be a filter in future here
 }
 
